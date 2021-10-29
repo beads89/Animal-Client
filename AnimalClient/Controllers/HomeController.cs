@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using AnimalClient.Models;
 
-namespace AnimalClient.Solution.Controllers
+namespace AnimalClient.Controllers
 {
   public class HomeController : Controller
   {
@@ -18,16 +18,21 @@ namespace AnimalClient.Solution.Controllers
     {
       _logger = logger;
     }
-
+    // WIP WIP WIP
     // [HttpGet("/")]
     public IActionResult Index()
     {
-      // dynamic model = new ExpandoObject();
-      // model.Cats = Cat.GetCats();
-      // model.Dogs = Dog.GetDogs();
+      dynamic model = new ExpandoObject();
+      model.Cats = Cat.GetCats();
+      model.Dogs = Dog.GetDogs();
 
-      return View();
+      return View(model);
     }
+    // public IActionResult Index()
+    // {
+
+    //   return RedirectToAction("Index", "cats");
+    // }
 
     public IActionResult Privacy()
     {

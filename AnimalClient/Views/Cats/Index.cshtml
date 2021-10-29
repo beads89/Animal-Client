@@ -1,0 +1,15 @@
+<h1>All Cats, Fluffy and Nigh!</h1>
+
+<ol>
+@foreach (Cat cat in Model)
+{
+    <ul>
+        <li>Cat ID #: @cat.CatId</li>
+        <li>Name: @cat.CatName</li>
+        <li>Gender: @cat.CatGender</li>
+        <li>Breed: @cat.CatBreed</li>
+        <li>Color: @cat.CatColor</li>
+    </ul>
+    <br>
+}
+</ol>
