@@ -14,7 +14,7 @@ namespace AnimalClient.Models
     public string DogColor { get; set; }
     public static List<Dog> GetDogs()
     {
-      var apiCallTask = ApiHelper.GetAll();
+      var apiCallTask = ApiHelperDog.GetAll();
       var result = apiCallTask.Result;
 
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
@@ -25,7 +25,7 @@ namespace AnimalClient.Models
     }
     public static Dog GetDetails(int id)
     {
-      var apiCallTask = ApiHelper.Get(id);
+      var apiCallTask = ApiHelperDog.Get(id);
       var result = apiCallTask.Result;
 
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
@@ -36,18 +36,18 @@ namespace AnimalClient.Models
     public static void Post(Dog dog)
     {
       string jsonDog = JsonConvert.SerializeObject(dog);
-      var apiCallTask = ApiHelper.Post(jsonDog);
+      var apiCallTask = ApiHelperDog.Post(jsonDog);
     }
 
     public static void Put(Dog dog)
     {
       string jsonDog = JsonConvert.SerializeObject(dog);
-      var apiCallTask = ApiHelper.Put(dog.DogId, jsonDog);
+      var apiCallTask = ApiHelperDog.Put(dog.DogId, jsonDog);
     }
 
     public static void Delete(int id)
     {
-      var apiCallTask = ApiHelper.Delete(id);
+      var apiCallTask = ApiHelperDog.Delete(id);
     }
   }
 }

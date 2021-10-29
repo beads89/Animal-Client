@@ -14,7 +14,7 @@ namespace AnimalClient.Models
     public string CatColor { get; set; }
     public static List<Cat> GetCats()
     {
-      var apiCallTask = ApiHelper.GetAll();
+      var apiCallTask = ApiHelperCat.GetAll();
       var result = apiCallTask.Result;
 
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
@@ -25,7 +25,7 @@ namespace AnimalClient.Models
     }
     public static Cat GetDetails(int id)
     {
-      var apiCallTask = ApiHelper.Get(id);
+      var apiCallTask = ApiHelperCat.Get(id);
       var result = apiCallTask.Result;
 
       JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
@@ -36,18 +36,18 @@ namespace AnimalClient.Models
     public static void Post(Cat cat)
     {
       string jsonCat = JsonConvert.SerializeObject(cat);
-      var apiCallTask = ApiHelper.Post(jsonCat);
+      var apiCallTask = ApiHelperCat.Post(jsonCat);
     }
 
     public static void Put(Cat cat)
     {
       string jsonCat = JsonConvert.SerializeObject(cat);
-      var apiCallTask = ApiHelper.Put(cat.CatId, jsonCat);
+      var apiCallTask = ApiHelperCat.Put(cat.CatId, jsonCat);
     }
 
     public static void Delete(int id)
     {
-      var apiCallTask = ApiHelper.Delete(id);
+      var apiCallTask = ApiHelperCat.Delete(id);
     }
   }
 }

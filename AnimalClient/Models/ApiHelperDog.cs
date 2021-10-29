@@ -3,28 +3,28 @@ using RestSharp;
 
 namespace AnimalClient.Models
 {
-  class ApiHelper
+  class ApiHelperDog
     {
     public static async Task<string> GetAll()
     {
-      RestClient client = new RestClient("http://localhost:5001/api");
-      RestRequest request = new RestRequest($"cats", Method.GET);
+      RestClient client = new RestClient("https://localhost:5001/api");
+      RestRequest request = new RestRequest($"dogs", Method.GET);
       var response = await client.ExecuteAsync(request);
       return response.Content;
     }
 
     public static async Task<string> Get(int id)
     {
-      RestClient client = new RestClient("http://localhost:5001/api");
-      RestRequest request = new RestRequest($"catss/{id}", Method.GET);
+      RestClient client = new RestClient("https://localhost:5001/api");
+      RestRequest request = new RestRequest($"dogs/{id}", Method.GET);
       var response = await client.ExecuteAsync(request);
       return response.Content;
     }
 
     public static async Task Post(string newCat)
     {
-      RestClient client = new RestClient("http://localhost:5001/api");
-      RestRequest request = new RestRequest($"cats", Method.POST);
+      RestClient client = new RestClient("https://localhost:5001/api");
+      RestRequest request = new RestRequest($"dogs", Method.POST);
       request.AddHeader("Content-Type", "application/json");
       request.AddJsonBody(newCat);
       var response = await client.ExecuteAsync(request);
@@ -32,8 +32,8 @@ namespace AnimalClient.Models
 
     public static async Task Put(int id, string newCat)
     {
-      RestClient client = new RestClient("http://localhost:5001/api");
-      RestRequest request = new RestRequest($"cats/{id}", Method.PUT);
+      RestClient client = new RestClient("https://localhost:5001/api");
+      RestRequest request = new RestRequest($"dogs/{id}", Method.PUT);
       request.AddHeader("Content-Type", "application/json");
       request.AddJsonBody(newCat);
       var response = await client.ExecuteAsync(request);
@@ -42,7 +42,7 @@ namespace AnimalClient.Models
     public static async Task Delete(int id)
     {
       RestClient client = new RestClient("http://localhost:5001/api");
-      RestRequest request = new RestRequest($"cats/{id}", Method.DELETE);
+      RestRequest request = new RestRequest($"dogs/{id}", Method.DELETE);
       request.AddHeader("Content-Type", "application/json");
       var response = await client.ExecuteAsync(request);
     }
