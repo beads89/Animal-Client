@@ -1,6 +1,6 @@
 using System;
 
-namespace AnimalClient.Solution.Models
+namespace AnimalClient.Models
 {
     public class ErrorViewModel
     {
